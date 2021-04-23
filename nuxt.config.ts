@@ -4,9 +4,10 @@ const config: NuxtConfig = {
   build: {},
   buildModules: [
     '@nuxtjs/composition-api/module',
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss'
   ],
-  css: [],
+  css: ['@/assets/css/main.css'],
   env: {},
   head: {
     title: 'nuxt-community/typescript-template',
@@ -18,7 +19,18 @@ const config: NuxtConfig = {
     link: []
   },
   loading: { color: '#0c64c1' },
-  modules: [],
+  modules: [
+    ['nuxt-fontawesome', {
+      component: 'fa', 
+      imports: [
+        //import whole set
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['fas']
+        },
+      ]
+    }]
+  ],
   plugins: [
     '~/plugins/truncate'
   ]
